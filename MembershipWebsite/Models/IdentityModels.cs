@@ -35,5 +35,6 @@ namespace MembershipWebsite.Models
         public DbSet<Part> Parts { get; set; }
         public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<Item> Items { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
