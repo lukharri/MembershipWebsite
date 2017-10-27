@@ -26,6 +26,11 @@ namespace MembershipWebsite
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // bundles minify code and make the page load faster
+            bundles.Add(new ScriptBundle("~/bundles/admin").Include(
+                      "~/Scripts/AdminMenu.js"));
+
         }
     }
 }
