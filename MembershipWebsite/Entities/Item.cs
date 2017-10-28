@@ -46,10 +46,19 @@ namespace MembershipWebsite.Entities
             }
         }
 
+        [DisplayName("Product Id")]
         public int ProductId { get; set; }
+
+        [DisplayName("Item Type Id")]
         public int ItemTypeId { get; set; }
+
+        [DisplayName("Section Id")]
         public int SectionId { get; set; }
+
+        [DisplayName("Part Id")]
         public int PartId { get; set; }
+
+        [DisplayName("Is Free")]
         public bool IsFree { get; set; }
 
         [DisplayName("Item Type")]
