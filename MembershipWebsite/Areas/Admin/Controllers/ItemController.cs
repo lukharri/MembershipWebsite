@@ -73,11 +73,17 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Item item = await db.Items.FindAsync(id);
             if (item == null)
             {
                 return HttpNotFound();
             }
+
+            item.ItemTypes = await db.ItemTypes.ToListAsync();
+            item.Parts = await db.Parts.ToListAsync();
+            item.Sections = await db.Sections.ToListAsync();
+
             return View(item);
         }
 

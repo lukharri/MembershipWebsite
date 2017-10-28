@@ -26,6 +26,7 @@ namespace MembershipWebsite.Entities
         public string Url { get; set; }
 
         [MaxLength(1024)]
+        [DisplayName("Image URL")]
         public string ImageUrl { get; set; }
 
         [AllowHtml]
@@ -33,6 +34,7 @@ namespace MembershipWebsite.Entities
 
         // users don't have to wait to access content unless otherwise specified
         [DefaultValue(0)]
+        [DisplayName("Wait Days")]
         public int WaitDays { get; set; }
 
         public string HTMLShort
