@@ -1,15 +1,17 @@
 ﻿@model MembershipWebsite.Entities.Item
 
+@using MembershipWebsite.Extensions;
+
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Item</h4>
         <hr />
@@ -63,33 +65,34 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ItemTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ItemTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ItemTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(
+                    model => model.ItemTypeId,
+                    Model.ItemTypes.ToSelectListItem(Model.ItemTypeId),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ItemTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SectionId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Sections, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SectionId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(
+                    model => model.SectionId,
+                    Model.Sections.ToSelectListItem(Model.SectionId),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SectionId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PartId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Parts, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PartId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(
+                    model => model.PartId,
+                    Model.Parts.ToSelectListItem(Model.PartId),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PartId, "", new { @class = "text-danger" })
             </div>
         </div>
