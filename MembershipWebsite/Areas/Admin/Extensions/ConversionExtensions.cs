@@ -63,5 +63,26 @@ namespace MembershipWebsite.Areas.Admin.Extensions
             return model;
         }
 
+        
+        // Convert ProductItem to ProductItemModel
+        public static async Task<IEnumerable<ProductItemModel>> Convert(
+        this IQueryable<ProductItem> productItems, ApplicationDbContext db)
+        {
+            if (productItems.Count().Equals(0))
+                return new List<ProductItemModel>();
+
+            return await (from pi in productItems
+                   select new ProductItemModel
+                   {
+                       ItemId = pi.ItemId,
+                       ProductId = pi.ProductId,
+                       ItemTitle = db.Items.FirstOrDefault(
+                           i => i.Id.Equals(pi.ItemId)).Title,
+                       ProductTitle = db.Products.FirstOrDefault(
+                           i => i.Id.Equals(pi.ProductId)).Title
+
+                   }).ToListAsync();
+        }
+
     }
 }
