@@ -1,4 +1,6 @@
-﻿@model MembershipWebsite.Entities.ProductItem
+﻿@model MembershipWebsite.Areas.Admin.Models.ProductItemModel
+
+@using MembershipWebsite.Extensions
 
 @{
     ViewBag.Title = "Create";
@@ -15,29 +17,35 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Products, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ProductId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(
+                    model => model.ProductId,
+                    Model.Products.ToSelectListItem(Model.ProductId),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ItemId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Items, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ItemId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(
+                    model => model.ItemId,
+                    Model.Products.ToSelectListItem(Model.ItemId),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("_BackToListPartial")
 </div>
