@@ -73,18 +73,20 @@ namespace MembershipWebsite.Areas.Admin.Controllers
         
 
         // GET: Admin/ProductItem/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int? itemId, int? productId)
         {
-            if (id == null)
+            if (itemId == null || productId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductItem productItem = await db.ProductItems.FindAsync(id);
+
+            ProductItem productItem = await GetProductItem(itemId, productId);
+
             if (productItem == null)
             {
                 return HttpNotFound();
             }
-            return View(productItem.Convert(db));
+            return View(await productItem.Convert(db));
         }
 
 
@@ -130,6 +132,26 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             db.ProductItems.Remove(productItem);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+
+        private async Task<ProductItem> GetProductItem(int? itemId, int? productId)
+        {
+            try
+            {
+                // Convert nullable int params to int values
+                int itmId = 0, prdId = 0;
+                int.TryParse(itemId.ToString(), out itmId);
+                int.TryParse(productId.ToString(), out prdId);
+
+                // Fetch the first product item w/matching product and item IDs
+                var productItem = await db.ProductItems.FirstOrDefaultAsync(
+                    pi => pi.ProductId.Equals(prdId) && pi.ItemId.Equals(itmId));
+
+                return productItem;
+            }
+
+            catch { return null; }
         }
 
 
