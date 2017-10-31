@@ -84,5 +84,22 @@ namespace MembershipWebsite.Areas.Admin.Extensions
                    }).ToListAsync();
         }
 
+
+        // Convert 1 ProductItem into 1 productItemModel
+        // Enables the ProductItem edit view to render 1 productItem as a productIemModel
+        public static async Task<ProductItemModel> Convert(
+        this ProductItem productItem, ApplicationDbContext db)
+        {
+            var model = new ProductItemModel
+            {
+                ItemId = productItem.ItemId,
+                ProductId = productItem.ProductId,
+                Items = await db.Items.ToListAsync(),
+                Products = await db.Products.ToListAsync()
+            };
+
+            return model;
+        }
+
     }
 }

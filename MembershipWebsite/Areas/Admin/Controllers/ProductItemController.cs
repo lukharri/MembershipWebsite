@@ -24,6 +24,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             return View(await db.ProductItems.Convert(db));
         }
 
+
         // GET: Admin/ProductItem/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -39,6 +40,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             return View(productItem);
         }
 
+
         // GET: Admin/ProductItem/Create
         public async Task<ActionResult> Create()
         {
@@ -50,6 +52,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
 
             return View(model);
         }
+
 
         // POST: Admin/ProductItem/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -67,6 +70,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
 
             return View(productItem);
         }
+        
 
         // GET: Admin/ProductItem/Edit/5
         public async Task<ActionResult> Edit(int? id)
@@ -80,8 +84,9 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(productItem);
+            return View(productItem.Convert(db));
         }
+
 
         // POST: Admin/ProductItem/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -99,6 +104,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             return View(productItem);
         }
 
+
         // GET: Admin/ProductItem/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
@@ -114,6 +120,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             return View(productItem);
         }
 
+
         // POST: Admin/ProductItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -124,6 +131,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
