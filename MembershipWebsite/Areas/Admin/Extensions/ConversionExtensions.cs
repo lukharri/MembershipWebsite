@@ -89,14 +89,19 @@ namespace MembershipWebsite.Areas.Admin.Extensions
         // Convert 1 ProductItem into 1 productItemModel
         // Enables the ProductItem edit view to render 1 productItem as a productIemModel
         public static async Task<ProductItemModel> Convert(
-        this ProductItem productItem, ApplicationDbContext db)
+        this ProductItem productItem, ApplicationDbContext db,
+        bool addListData = true)
         {
             var model = new ProductItemModel
             {
                 ItemId = productItem.ItemId,
                 ProductId = productItem.ProductId,
-                Items = await db.Items.ToListAsync(),
-                Products = await db.Products.ToListAsync()
+                Items = addListData ? await db.Items.ToListAsync() : null,
+                Products = addListData ? await db.Products.ToListAsync() : null,
+                ItemTitle = (await db.Items.FirstOrDefaultAsync(i => 
+                    i.Id.Equals(productItem.ItemId))).Title,
+                ProductTitle = (await db.Products.FirstOrDefaultAsync(p => 
+                    p.Id.Equals(productItem.ProductId))).Title
             };
 
             return model;

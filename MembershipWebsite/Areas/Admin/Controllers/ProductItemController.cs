@@ -38,7 +38,7 @@ namespace MembershipWebsite.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
-            return View(productItem);
+            return View(await productItem.Convert(db));
         }
 
 
