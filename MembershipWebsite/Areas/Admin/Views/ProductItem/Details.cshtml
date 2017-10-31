@@ -1,5 +1,7 @@
 ﻿@model MembershipWebsite.Areas.Admin.Models.ProductItemModel
 
+@using MembershipWebsite.Areas.Admin.Models
+
 @{
     ViewBag.Title = "Details";
 }
@@ -25,6 +27,13 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @*@Html.Partial("_EditButtonDetailPartial",
+       new EditButtonModel { ItemId = Model.ItemId, ProductId = Model.ProductId })
+    @Html.Partial("_BackToListPartial")*@
+
+    @Html.Partial("_EditButtonDetailPartial",
+        new EditButtonModel { ItemId = Model.ItemId, ProductId = Model.ProductId })
     @Html.Partial("_BackToListPartial")
+
+
 </p>
