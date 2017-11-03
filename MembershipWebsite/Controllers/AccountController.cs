@@ -541,22 +541,19 @@ namespace MembershipWebsite.Controllers
         }
 
 
-        // GET: Account/Edit/5
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(string userId)
         {
-            if (userId == null || !userId.Equals(string.Empty))
+            if (userId == null || userId.Equals(string.Empty))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             // Fetch user from aspnet user table - user manager
             ApplicationUser user = await UserManager.FindByIdAsync(userId);
             if (user == null)
             {
                 return HttpNotFound();
             }
-
             var model = new UserViewModel
             {
                 Email = user.Email,
@@ -564,7 +561,6 @@ namespace MembershipWebsite.Controllers
                 Id = user.Id,
                 Password = user.PasswordHash
             };
-
             return View(model);
         }
 
@@ -592,21 +588,21 @@ namespace MembershipWebsite.Controllers
                         // Used when a new password is entered for an existing user
                         // If the passwords don't match, create a new hash code stored in db
                         if (!user.PasswordHash.Equals(model.Password))
-                            user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.Password);
+                            user.PasswordHash = UserManager.PasswordHasher
+                                .HashPassword(model.Password);
 
                         var result = await UserManager.UpdateAsync(user);
                         if (result.Succeeded)
                         {
                             return RedirectToAction("Index", "Account");
-
                         }
                         AddErrors(result);
-    
                     }
                 }
             }
             catch { }
             return View(model);
         }
+
     }
 }
