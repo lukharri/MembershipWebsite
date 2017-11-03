@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<MembershipWebsite.Models.UserViewModel>
 
+@using MembershipWebsite.Areas.Admin.Models;
+
 @{
     ViewBag.Title = "Users & Subscriptions";
 }
@@ -8,10 +10,10 @@
 @if(Request.IsAuthenticated && User.IsInRole("Admin"))
 {
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.Partial("_CreateButtonPartial", "Create")
 </p>
-<table class="table">
-    <tr>
+<table class="table table-condensed table-striped">
+    <tr class="success">
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
@@ -29,10 +31,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        @Html.Partial("_TableButtonsPartial", new SmallButtonModel { UserId = item.Id })
+
+
     </tr>
 }
 
