@@ -1,4 +1,6 @@
-﻿@model MembershipWebsite.Entities.Subscription
+﻿@model MembershipWebsite.Areas.Admin.Models.SubscriptionProductModel
+
+@using MembershipWebsite.Areas.Admin.Models
 
 @{
     ViewBag.Title = "Details";
@@ -7,36 +9,28 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Subscription</h4>
+    <h4>Subscription Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(m => m.SubscriptionTitle)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(m => m.SubscriptionTitle)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(m => m.ProductTitle)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(m => m.ProductTitle)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistrationCode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegistrationCode)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    @Html.Partial("_EditButtonDetailPartial",
+        new EditButtonModel { SubscriptionId = Model.SubscriptionId, ProductId = Model.ProductId })
+    @Html.Partial("_BackToListPartial")
+
+
 </p>
