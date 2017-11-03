@@ -14,6 +14,8 @@ using MembershipWebsite.Areas.Admin.Extensions;
 
 namespace MembershipWebsite.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class ProductItemController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

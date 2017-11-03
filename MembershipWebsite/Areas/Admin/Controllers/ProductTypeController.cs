@@ -12,8 +12,11 @@ using MembershipWebsite.Models;
 
 namespace MembershipWebsite.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class ProductTypeController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/ProductType

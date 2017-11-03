@@ -12,6 +12,8 @@ using MembershipWebsite.Models;
 
 namespace MembershipWebsite.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class PartController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
