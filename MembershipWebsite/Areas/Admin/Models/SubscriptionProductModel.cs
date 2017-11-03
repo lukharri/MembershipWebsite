@@ -22,6 +22,6 @@ namespace MembershipWebsite.Areas.Admin.Models
         public string SubscriptionTitle { get; set; }
 
         public ICollection<Product> Products { get; set; }
-        public ICollection<Item> Subscriptions { get; set; }
+        public ICollection<Subscription> Subscriptions { get; set; }
     }
 }
