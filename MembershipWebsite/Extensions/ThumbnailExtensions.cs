@@ -31,7 +31,7 @@ namespace MembershipWebsite.Extensions
         }
 
 
-        public static async Task<IEnumerable<ThumbnailModel>> GetThumbnailsAsync (
+        public static async Task<IEnumerable<ThumbnailModel>> GetProductThumbnailsAsync (
             this List<ThumbnailModel> thumbnails, string userId = null, ApplicationDbContext db = null)
         {
             try
