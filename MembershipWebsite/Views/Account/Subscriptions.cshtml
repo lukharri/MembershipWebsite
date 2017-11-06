@@ -31,12 +31,41 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success btn-sm" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("_BackToListPartial")
 </div>
+
+<hr />
+<br />
+<table class="table table-condensed table-striped">
+    <tr class="success">
+        <th>Id</th>
+        <th>Title</th>
+        <th>Code</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.UserSubscriptions)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.RegistrationCode)</td>
+            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+            <td>
+                <a href="@Url.Action("RemoveUserSubscription")?subscriptionId=@item.Id&userId=@Model.UserId" 
+                   type="button" class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
