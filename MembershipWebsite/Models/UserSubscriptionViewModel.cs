@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MembershipWebsite.Models
 {
+    
     public class UserSubscriptionViewModel
     {
         public ICollection<Subscription> Subscriptions { get; set; }

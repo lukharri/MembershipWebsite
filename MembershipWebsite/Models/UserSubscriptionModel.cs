@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MembershipWebsite.Models
 {
+    // Used to display a user's subscriptions
     public class UserSubscriptionModel
     {
         public int Id { get; set; }
