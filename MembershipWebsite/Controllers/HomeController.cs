@@ -13,7 +13,6 @@ namespace MembershipWebsite.Controllers
         public ActionResult Index()
         {
             var userId = Request.IsAuthenticated ? HttpContext.User.Identity.GetUserId() : null;
-
             var model = new List<ThumbnailAreaModel>();
             model.Add(new ThumbnailAreaModel
             {
