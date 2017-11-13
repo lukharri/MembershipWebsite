@@ -1,4 +1,5 @@
-﻿using MembershipWebsite.Models;
+﻿using MembershipWebsite.Extensions;
+using MembershipWebsite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,9 @@ namespace MembershipWebsite.Controllers
         // GET: ProductContent
         public async Task<ActionResult> Index(int id)
         {
-            var model = new ProductSectionModel
-            {
-                Title = "the title",
-                Sections = new List<ProductSection>()
-            };
-            return View(model);
+            var userId = Request.IsAuthenticated ? HttpContext.GetUserId() : null;
+            var sections = await SectionExtensions.GetProductSectionsAsync(id, userId);
+            return View(sections);
         }
     }
 }
