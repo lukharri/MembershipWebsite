@@ -14,6 +14,6 @@ namespace MembershipWebsite.Models
         public string TagText { get; set; }
         public string ImageUrl { get; set; }
         public string Link { get; set; }
-        public string Content { get; set; }
+        public string ContentTag { get; set; }
     }
 }

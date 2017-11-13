@@ -55,7 +55,7 @@ namespace MembershipWebsite.Extensions
                         ImageUrl = p.ImageUrl,
                         Link = "/ProductContent/Index/" + p.Id,
                         TagText = plt.Title,
-                        Content = pt.Title
+                        ContentTag = pt.Title
                     }).ToListAsync();
             }
             catch { }
