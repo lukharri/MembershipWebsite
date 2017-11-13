@@ -34,7 +34,8 @@ namespace MembershipWebsite
             bundles.Add(new StyleBundle("~/Content/membership").Include(
                      "~/Content/navbar.css",
                      "~/Content/thumbnails.css",
-                     "~/Content/ProductContent.css"));
+                     "~/Content/ProductContent.css",
+                     "~/Content/Carret.css"));
 
 
         }
