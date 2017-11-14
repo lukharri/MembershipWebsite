@@ -20,5 +20,16 @@ namespace MembershipWebsite.Controllers
             var sections = await SectionExtensions.GetProductSectionsAsync(id, userId);
             return View(sections);
         }
+
+
+        /*
+         * Display an item to the user 
+         */
+        public async Task<ActionResult> Content(int productId, int itemId)
+        {
+            var model = await SectionExtensions.GetContentAsync(productId, itemId);
+            return View("Content", model);
+        }
     }
+
 }
