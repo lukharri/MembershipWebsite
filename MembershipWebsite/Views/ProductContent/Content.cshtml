@@ -4,7 +4,7 @@
     ViewBag.Title = "Content";
 }
 
-<div class="headline">
+<div class="pc-headline">
     <h2>@Model.Title</h2>
     <a class="btn btn-primary pull-right" href="/ProductContent/Index/@Model.ProductId">
         <span class="glyphicon glyphicon-arrow-left"></span>
@@ -27,9 +27,9 @@
 
 @section scripts
 {
-    <script type="text/javascript">
+<script type="text/javascript">
         $(function () {
-            jwVideo(@("#hiddenUrl").text());
+            jwVideo($("#hiddenUrl").text());
         });
-    </script>
-    }
+</script>
+}

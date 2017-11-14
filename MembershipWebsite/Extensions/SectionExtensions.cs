@@ -65,7 +65,7 @@ namespace MembershipWebsite.Extensions
                                join sp in db.SubscriptionProducts on pi.ProductId equals sp.ProductId
                                join us in db.UserSubscriptions on sp.SubscriptionId equals us.SubscriptionId
                                where i.SectionId.Equals(sectionId) &&
-                               i.ItemTypeId.Equals(itemTypeId) &&
+                               //i.ItemTypeId.Equals(itemTypeId) &&
                                pi.ProductId.Equals(productId) &&
                                us.UserId.Equals(userId)
                                orderby i.PartId
@@ -74,7 +74,7 @@ namespace MembershipWebsite.Extensions
                                    ItemId = i.Id,
                                    Description = i.Description,
                                    Title = i.Title,
-                                   Link = "/ProductContent/Content/" + pi.ProductId + "/" + i.Id,
+                                   Link = it.Title.Equals("Download") ? i.Url :  "/ProductContent/Content/" + pi.ProductId + "/" + i.Id,
                                    ImagaUrl = i.ImageUrl,
 
                                    ReleaseDate = DbFunctions.CreateDateTime(us.StartDate.Value.Year,
