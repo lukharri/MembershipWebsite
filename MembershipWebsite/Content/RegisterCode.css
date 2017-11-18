@@ -4,3 +4,5 @@
     border-radius: 0px; 
 }
 .register-code-panel .alert { padding: 5px; margin-bottom: 0px; margin-top: 3px; border: hidden; border-radius: 0px; }
+#register-code-textbox { width: 68% }
+#register-code-submit-button { width: 70px; }
