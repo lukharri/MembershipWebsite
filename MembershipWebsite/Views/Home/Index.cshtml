@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<MembershipWebsite.Models.ThumbnailAreaModel>
 
+@using MembershipWebsite.Models
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -22,6 +24,8 @@
 
         // Right column
         <div class="col-lg-3 col-md-4 col-sm-5">
+            @*// Must pass an instance of the model the partial view works with*@
+            @Html.Partial("_RegisterUserPartial", new RegisterUserModel { Email="", Name="", Password="" })
         </div>
     }
 </div>
