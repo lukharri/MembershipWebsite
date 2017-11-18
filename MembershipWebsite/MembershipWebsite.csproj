@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductContentController.cs" />
+    <Compile Include="Controllers\RegistrationCodeController.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\ItemType.cs" />
     <Compile Include="Entities\SubscriptionProduct.cs" />
@@ -376,7 +377,9 @@
     <Content Include="Views\ProductContent\Content.cshtml" />
     <Content Include="Views\Shared\_RegisterCodePartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\RegistrationCode\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
