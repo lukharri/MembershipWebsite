@@ -17,4 +17,4 @@ namespace MembershipWebsite.Models
 
         public string VideoUrl { get; set; }
     }
-}
+}  
