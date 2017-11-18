@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MembershipWebsite.Controllers
 {
-    public class RegistrationCodeController : Controller
+    public class RegisterCodeController : Controller
     {
        public async Task<ActionResult> Register(string code)
         {

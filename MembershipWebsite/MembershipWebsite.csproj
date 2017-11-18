@@ -191,7 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductContentController.cs" />
-    <Compile Include="Controllers\RegistrationCodeController.cs" />
+    <Compile Include="Controllers\RegisterCodeController.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\ItemType.cs" />
     <Compile Include="Entities\SubscriptionProduct.cs" />
@@ -267,6 +267,7 @@
     <Content Include="Areas\Admin\Views\Section\Index.cshtml" />
     <Content Include="Scripts\carret.js" />
     <Content Include="Scripts\JWPlayer.js" />
+    <Content Include="Scripts\RegisterCode.js" />
     <Content Include="Views\Shared\_BackToListPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_EditButtonPartial.cshtml" />
     <Content Include="Views\Shared\_CreateButtonPartial.cshtml" />
@@ -378,7 +379,7 @@
     <Content Include="Views\Shared\_RegisterCodePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\RegistrationCode\" />
+    <Folder Include="Views\RegisterCode\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
