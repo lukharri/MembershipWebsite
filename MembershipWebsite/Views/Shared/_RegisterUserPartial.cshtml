@@ -20,16 +20,14 @@
                 <span class="input-group-addon glyphicon glyphicon-lock"></span>
                 @Html.TextBoxFor(m => m.Password, new { @class = "form-control password", @placeholder = "Password" })
             </div>
-
             <div class="register-check-box">
                 @Html.CheckBoxFor(m => m.AcceptUserAgreement,
                new { @data_register_user_agreement_click = "" })
                 <span> I Accept the @Html.ActionLink("Terms of Use", "TermsOfUse", "Legal")</span>
-        </div>
-
+            </div>
             <button type="button" class="pull-right btn btn-success disabled">
                 Sign me up!
             </button>
+        </div>
     </div>
-</div>
 </div>

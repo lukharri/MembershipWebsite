@@ -41,6 +41,7 @@ namespace MembershipWebsite
                      "~/Content/thumbnails.css",
                      "~/Content/ProductContent.css",
                      "~/Content/RegisterCode.css",
+                     "~/Content/RegisterUser.css",
                      "~/Content/Carret.css"));
 
 
