@@ -760,6 +760,9 @@ namespace MembershipWebsite.Controllers
         }
 
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterUserAsync(RegisterUserModel model)
         {
             model.AcceptUserAgreement = true;
