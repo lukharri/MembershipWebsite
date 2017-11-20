@@ -9,8 +9,8 @@
 
 .register-user-panel input[type=text].form-control,
 .register-user-panel input[type=password].form-control {
-    margin-bottom: 3px;
-    margin-top: 3px;
+    margin-bottom: 4px;
+    margin-top: 4px;
 }
 
 .register-user-panel .glyphicon-user,
@@ -24,3 +24,5 @@
 .register-user-panel button {
     margin-top: 5px;
 }
+
+.register-user-panel .register-check-box { margin-left: 22px; margin-top: 4px; }
