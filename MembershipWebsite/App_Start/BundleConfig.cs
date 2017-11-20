@@ -36,6 +36,7 @@ namespace MembershipWebsite
                      "~/Scripts/RegisterCode.js",
                      "~/Scripts/RegisterUser.js",
                      "~/Scripts/Login.js",
+                     "~/Scripts/ForgotPassword.js",
                      "~/Scripts/JWPlayer.js"));
 
             bundles.Add(new StyleBundle("~/Content/membership").Include(
@@ -45,6 +46,7 @@ namespace MembershipWebsite
                      "~/Content/RegisterCode.css",
                      "~/Content/RegisterUser.css",
                      "~/Content/Login.css",
+                     "~/Content/ForgotPassword.css",
                      "~/Content/Carret.css"));
 
 
